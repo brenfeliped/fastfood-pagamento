@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: postgres:16
-    container_name: fastfood-db
+    container_name: fastfood-pagamento-db
     restart: always
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
@@ -12,13 +12,13 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - fastfood-db:/var/lib/postgresql/data
+      - fastfood-pagamento-db:/var/lib/postgresql/data
     networks:
-      - fastfood-net
+      - fastfood-pagamento-net
 
   app:
     build: .
-    container_name: fastfood-app
+    container_name: fastfood-pagamento-app
     depends_on:
       - db
     ports:
@@ -32,7 +32,7 @@ services:
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     networks:
-      - fastfood-net
+      - fastfood-pagamento-net
     deploy:
       resources:
         limits:
@@ -41,8 +41,8 @@ services:
 
 
 volumes:
-  fastfood-db:
+  fastfood-pagamento-db:
 
 networks:
-  fastfood-net:
+  fastfood-pagamento-net:
 

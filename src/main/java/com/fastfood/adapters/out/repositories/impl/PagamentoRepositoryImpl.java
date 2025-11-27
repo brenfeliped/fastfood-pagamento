@@ -1,13 +1,10 @@
 package com.fastfood.adapters.out.repositories.impl;
 
 import com.fastfood.adapters.out.entities.JpaPagamentoEntity;
-import com.fastfood.adapters.out.entities.JpaPedidoEntity;
 import com.fastfood.adapters.out.repositories.JpaPagamentoRepository;
-import com.fastfood.adapters.out.repositories.JpaPedidoRepository;
 import com.fastfood.domain.pagamento.EnumStatusPagamento;
 import com.fastfood.domain.pagamento.Pagamento;
 import com.fastfood.domain.pagamento.PagamentoRepository;
-import com.fastfood.domain.pedido.PedidoNaoEncontradoException;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,21 +15,17 @@ public class PagamentoRepositoryImpl implements PagamentoRepository {
 
     private final JpaPagamentoRepository jpaPagamentoRepository;
 
-    private final JpaPedidoRepository jpaPedidoRepository;
 
-    public PagamentoRepositoryImpl(JpaPagamentoRepository jpaPagamentoRepository, JpaPedidoRepository jpaPedidoRepository) {
+
+    public PagamentoRepositoryImpl(JpaPagamentoRepository jpaPagamentoRepository) {
         this.jpaPagamentoRepository = jpaPagamentoRepository;
-        this.jpaPedidoRepository = jpaPedidoRepository;
     }
 
 
     @Override
-    public Pagamento save(Pagamento pagamento) throws PedidoNaoEncontradoException {
+    public Pagamento save(Pagamento pagamento){
 
-        JpaPedidoEntity pedidoEntity = jpaPedidoRepository.findById(pagamento.getPedidoId())
-                .orElseThrow(() -> new PedidoNaoEncontradoException());
-
-        JpaPagamentoEntity  jpaPagamentoEntity = jpaPagamentoRepository.save(JpaPagamentoEntity.fromDomain(pagamento, pedidoEntity));
+        JpaPagamentoEntity  jpaPagamentoEntity = jpaPagamentoRepository.save(JpaPagamentoEntity.fromDomain(pagamento));
 
         return jpaPagamentoEntity.toDomain();
     }

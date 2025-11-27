@@ -3,7 +3,6 @@ package com.fastfood.application.pagamento;
 import com.fastfood.domain.pagamento.EnumStatusPagamento;
 import com.fastfood.domain.pagamento.Pagamento;
 import com.fastfood.domain.pagamento.PagamentoRepository;
-import com.fastfood.domain.pedido.PedidoNaoEncontradoException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,12 +19,7 @@ public class PagamentoService {
     }
 
     public Pagamento salvarPagamento(Pagamento pagamento){
-
-        try {
-            return  pagamentoRepository.save(pagamento);
-        } catch (PedidoNaoEncontradoException e) {
-            throw new RuntimeException(e);
-        }
+        return  pagamentoRepository.save(pagamento);
     }
 
     public List<Pagamento> listarTodosPagamentos(){

@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.cfg.defs.UUIDDef;
 
 import java.util.UUID;
 
@@ -27,23 +28,21 @@ public class JpaPagamentoEntity {
 
 //    @NotNull
 //    private UUID pedidoId;
+    @Column(name = "pedido_id", nullable = false, unique = true)
+    private UUID pedidoId;
 
-    @OneToOne
-    @JoinColumn(name = "pedido_id", referencedColumnName = "id", nullable = false, unique = true)
-    private JpaPedidoEntity pedido;
 
     @Enumerated(EnumType.STRING)
     private EnumStatusPagamento status;
 
     public Pagamento toDomain(){
-        return new Pagamento(this.id, this.pedido.getId(), status);
+        return new Pagamento(this.id, this.pedidoId, status);
     }
 
-    public static JpaPagamentoEntity fromDomain(Pagamento pagamento , JpaPedidoEntity pedidoEntity){
+    public static JpaPagamentoEntity fromDomain(Pagamento pagamento){
         JpaPagamentoEntity pagamentoEntity = new JpaPagamentoEntity();
         pagamentoEntity.setId(pagamento.getId());
-        //pagamentoEntity.setPedidoId(pagamento.getPedidoId());
-        pagamentoEntity.setPedido(pedidoEntity);
+        pagamentoEntity.setPedidoId(pagamento.getPedidoId());
         pagamentoEntity.setStatus(pagamento.getStatus());
         return  pagamentoEntity;
     }
