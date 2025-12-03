@@ -10,7 +10,11 @@ public class PagamentoMapper {
 
         return new PagamentoDTO(
                 pagamento.getId(),
-                pagamento.getPedidoId()
+                pagamento.getPedidoId(),
+                pagamento.getValor(),
+                pagamento.getStatus(),
+                pagamento.getCriadoEm(),
+                pagamento.getAtualizadoEm()
         );
     }
 
@@ -20,7 +24,10 @@ public class PagamentoMapper {
         return new Pagamento(
                 dto.getId(),
                 dto.getPedidoId(),
-                EnumStatusPagamento.PENDENTE
+                dto.getValor(),
+                EnumStatusPagamento.PENDENTE,
+                dto.getCriadoEm(),
+                dto.getAtualizadoEm()
         );
     }
 }

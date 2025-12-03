@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -29,12 +31,17 @@ public class JpaPagamentoEntity {
     @Column(name = "pedido_id", nullable = false, unique = true)
     private UUID pedidoId;
 
+    private BigDecimal valor;
 
     @Enumerated(EnumType.STRING)
     private EnumStatusPagamento status;
 
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
+
+
     public Pagamento toDomain(){
-        return new Pagamento(this.id, this.pedidoId, status);
+        return new Pagamento(this.id, this.pedidoId, this.valor, this.status, this.criadoEm, this.atualizadoEm);
     }
 
     public static JpaPagamentoEntity fromDomain(Pagamento pagamento){
