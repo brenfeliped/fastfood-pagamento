@@ -1,7 +1,7 @@
-package com.fastfood.adapters.in.resources.pagamento;
+package com.fastfood.infrastructure.controller.pagamento;
 
 
-import com.fastfood.application.pagamento.PagamentoService;
+import com.fastfood.application.usecase.PagamentoService;
 import com.fastfood.domain.pagamento.EnumStatusPagamento;
 import com.fastfood.domain.pagamento.Pagamento;
 import com.fastfood.domain.pagamento.dto.PagamentoDTO;

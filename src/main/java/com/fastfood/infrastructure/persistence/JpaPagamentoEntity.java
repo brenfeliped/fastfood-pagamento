@@ -1,15 +1,13 @@
-package com.fastfood.adapters.out.entities;
+package com.fastfood.infrastructure.persistence;
 
 
 import com.fastfood.domain.pagamento.EnumStatusPagamento;
 import com.fastfood.domain.pagamento.Pagamento;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.cfg.defs.UUIDDef;
 
 import java.util.UUID;
 

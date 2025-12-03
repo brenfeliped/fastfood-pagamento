@@ -1,4 +1,4 @@
-package com.fastfood.application.security.dto;
+package com.fastfood.application.usecase.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

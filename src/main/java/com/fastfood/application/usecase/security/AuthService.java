@@ -1,8 +1,8 @@
-package com.fastfood.application.security;
+package com.fastfood.application.usecase.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fastfood.application.security.dto.AuthRequest;
-import com.fastfood.application.security.dto.AuthResponse;
+import com.fastfood.application.usecase.dto.AuthRequest;
+import com.fastfood.application.usecase.dto.AuthResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.fastfood.application.security;
+package com.fastfood.application.usecase.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,7 +1,5 @@
-package com.fastfood.adapters.out.repositories.impl;
+package com.fastfood.infrastructure.persistence;
 
-import com.fastfood.adapters.out.entities.JpaPagamentoEntity;
-import com.fastfood.adapters.out.repositories.JpaPagamentoRepository;
 import com.fastfood.domain.pagamento.EnumStatusPagamento;
 import com.fastfood.domain.pagamento.Pagamento;
 import com.fastfood.domain.pagamento.PagamentoRepository;

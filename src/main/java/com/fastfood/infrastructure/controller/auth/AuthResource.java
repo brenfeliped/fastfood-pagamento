@@ -1,10 +1,10 @@
-package com.fastfood.adapters.in.resources.auth;
+package com.fastfood.infrastructure.controller.auth;
 
-import com.fastfood.application.security.AuthService;
-import com.fastfood.application.security.ValidacaoTokenService;
-import com.fastfood.application.security.dto.AuthRequest;
-import com.fastfood.application.security.dto.AuthResponse;
-import com.fastfood.application.security.dto.ValidacaoResponse;
+import com.fastfood.application.usecase.security.AuthService;
+import com.fastfood.application.usecase.security.ValidacaoTokenService;
+import com.fastfood.application.usecase.dto.AuthRequest;
+import com.fastfood.application.usecase.dto.AuthResponse;
+import com.fastfood.application.usecase.dto.ValidacaoResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

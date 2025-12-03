@@ -1,6 +1,6 @@
-package com.fastfood.adapters.in.resources.pagamento;
+package com.fastfood.infrastructure.controller.pagamento;
 
-import com.fastfood.application.pagamento.ProcessarWebhookPagamentoUseCase;
+import com.fastfood.application.usecase.ProcessarWebhookPagamentoUseCase;
 import com.fastfood.domain.pagamento.dto.WebhookPagamentoDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,7 +1,7 @@
-package com.fastfood.application.security;
+package com.fastfood.application.usecase.security;
 
 
-import com.fastfood.application.security.dto.ValidacaoResponse;
+import com.fastfood.application.usecase.dto.ValidacaoResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;

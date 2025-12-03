@@ -1,4 +1,4 @@
-package com.fastfood.application.pagamento;
+package com.fastfood.application.usecase;
 
 
 import com.fastfood.domain.pagamento.EnumStatusPagamento;

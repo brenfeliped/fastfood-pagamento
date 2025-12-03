@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {"com.fastfood"})
 @EnableJpaRepositories
-public class PagamentoApplication {
+public class FastFoodPagamentoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(PagamentoApplication.class, args);
+        SpringApplication.run(FastFoodPagamentoApplication.class, args);
     }
 }
 

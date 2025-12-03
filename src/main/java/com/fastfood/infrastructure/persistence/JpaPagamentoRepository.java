@@ -1,6 +1,5 @@
-package com.fastfood.adapters.out.repositories;
+package com.fastfood.infrastructure.persistence;
 
-import com.fastfood.adapters.out.entities.JpaPagamentoEntity;
 import com.fastfood.domain.pagamento.EnumStatusPagamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 
