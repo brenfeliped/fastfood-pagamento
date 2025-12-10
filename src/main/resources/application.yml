@@ -53,3 +53,9 @@ management:
   health:
     probes:
       enabled: true
+
+kafka:
+  bootstrap-servers: kafka:9092
+  topics:
+    pagamento: ${KAFKA_TOPIC_PAGAMENTO}
+    pedido: ${KAFKA_TOPIC_PEDIDO}

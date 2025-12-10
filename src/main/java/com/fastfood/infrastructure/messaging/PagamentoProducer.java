@@ -15,7 +15,7 @@ public class PagamentoProducer {
     }
 
     public void enviarSolicitacaoPagamento(Pagamento pagamento) {
-        // For simplicity we send a status event AGUARDANDO_PAGAMENTO to topic 'pagamento.solicitado'
+        //  PENDENTE to topic 'pagamento.solicitado'
         PagamentoStatusEvent e = toEvent(pagamento);
         kafka.send("pagamento.solicitado", e);
     }
