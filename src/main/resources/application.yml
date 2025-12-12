@@ -6,6 +6,13 @@ server:
       include-message: always
       include-stacktrace: always
 spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+    topics:
+      pagamento: ${KAFKA_TOPIC_PAGAMENTO}
+      pedido: ${KAFKA_TOPIC_PEDIDO}
+
+
   datasource:
     url: jdbc:postgresql://db:5432/fastfood
     username: postgres
@@ -55,7 +62,6 @@ management:
       enabled: true
 
 kafka:
-  bootstrap-servers: kafka:9092
-  topics:
-    pagamento: ${KAFKA_TOPIC_PAGAMENTO}
-    pedido: ${KAFKA_TOPIC_PEDIDO}
+    topics:
+      pagamento: ${KAFKA_TOPIC_PAGAMENTO}
+      pedido: ${KAFKA_TOPIC_PEDIDO}
