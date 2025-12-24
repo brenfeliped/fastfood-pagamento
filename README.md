@@ -1,5 +1,5 @@
 
-# 🍔 FastFood - Backend
+# 🍔 FastFood - Micro serviço de Pagamento
 
 Backend monolítico desenvolvido para o **Desafio SOAT Tech Challenge - Fast Food - Fase 1**, utilizando **Arquitetura Hexagonal** com Java e Spring Boot.
 
