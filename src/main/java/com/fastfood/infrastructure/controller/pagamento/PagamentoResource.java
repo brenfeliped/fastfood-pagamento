@@ -37,7 +37,7 @@ public class PagamentoResource {
         Pagamento pagamento = PagamentoMapper.toDomain(pagamentoDTO);
         pagamento.setId(UUID.randomUUID());
         Pagamento pagamentoSalvo = pagamentoService.salvarPagamento(pagamento);
-        return pagamentoService.salvarPagamento(pagamentoSalvo);
+        return pagamentoSalvo;
     }
 
     @GetMapping("/{id}")
@@ -67,7 +67,7 @@ public class PagamentoResource {
     public ResponseEntity<Pagamento> buscarPorPedidoId(@PathVariable UUID id) {
         Pagamento pagamento = pagamentoService.buscarPorPedidoId(id);
 
-        if(pagamento.equals(null)){
+        if(pagamento == null){
             return ResponseEntity.notFound().build();
         }
 

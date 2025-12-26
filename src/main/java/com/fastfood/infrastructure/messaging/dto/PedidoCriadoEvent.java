@@ -1,17 +1,18 @@
 package com.fastfood.infrastructure.messaging.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PedidoCriadoEvent {
 
     private UUID pedidoId;
     private BigDecimal valor;
 
-    public PedidoCriadoEvent() {}
+
 }
