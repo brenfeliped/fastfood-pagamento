@@ -19,8 +19,6 @@ public class ProcessarWebhookPagamentoUseCase {
 
     public void processar(WebhookPagamentoDTO dto) {
         Pagamento pagamento = pagamentoService.buscarPorId(dto.getIdPagamento());
-//        Pedido pedido = pedidoService.buscarPorId(pagamento.getPedidoId());
-//        pedidoService.atualizarStatus(pedido.getId(), EnumStatusPedido.EM_PREPARACAO.name());
         pagamento.setStatus(EnumStatusPagamento.APROVADO);
         pagamentoService.salvarPagamento(pagamento);
         System.out.println("Recebido pagamento: " + dto.getIdPagamento() + ", status: " + dto.getStatus());

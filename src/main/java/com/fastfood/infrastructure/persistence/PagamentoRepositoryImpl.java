@@ -6,6 +6,7 @@ import com.fastfood.domain.pagamento.PagamentoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -29,12 +30,12 @@ public class PagamentoRepositoryImpl implements PagamentoRepository {
     }
 
     @Override
-    public Pagamento findById(UUID id) {
+    public Optional<Pagamento> findById(UUID id) {
         if(jpaPagamentoRepository.findById(id).isPresent()) {
             JpaPagamentoEntity entity = jpaPagamentoRepository.findById(id).get();
-            return entity.toDomain();
+            return Optional.ofNullable(entity.toDomain());
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
@@ -45,9 +46,9 @@ public class PagamentoRepositoryImpl implements PagamentoRepository {
     }
 
     @Override
-    public Pagamento findByPedidoId(UUID pedidoId) {
+    public Optional<Pagamento> findByPedidoId(UUID pedidoId) {
         JpaPagamentoEntity entity = jpaPagamentoRepository.findByPedidoId(pedidoId);
-        return entity.toDomain();
+        return Optional.of(entity.toDomain());
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.fastfood.domain.pagamento.PagamentoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -27,11 +28,11 @@ public class PagamentoService {
     }
 
     public Pagamento buscarPorId(UUID id){
-        return pagamentoRepository.findById(id);
+        return pagamentoRepository.findById(id).get();
     }
 
     public Pagamento buscarPorPedidoId(UUID id){
-        return pagamentoRepository.findByPedidoId(id);
+        return pagamentoRepository.findByPedidoId(id).get();
     }
 
     public List<Pagamento> buscarPorStatus(EnumStatusPagamento status){

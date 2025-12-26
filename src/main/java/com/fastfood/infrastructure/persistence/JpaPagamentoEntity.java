@@ -47,6 +47,9 @@ public class JpaPagamentoEntity {
     public static JpaPagamentoEntity fromDomain(Pagamento pagamento){
         JpaPagamentoEntity pagamentoEntity = new JpaPagamentoEntity();
         pagamentoEntity.setId(pagamento.getId());
+        pagamentoEntity.setValor(pagamento.getValor());
+        pagamentoEntity.setCriadoEm(pagamento.getCriadoEm());
+        pagamentoEntity.setAtualizadoEm(pagamento.getAtualizadoEm());
         pagamentoEntity.setPedidoId(pagamento.getPedidoId());
         pagamentoEntity.setStatus(pagamento.getStatus());
         return  pagamentoEntity;
