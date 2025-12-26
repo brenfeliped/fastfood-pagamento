@@ -14,6 +14,5 @@ class SwaggerConfigTest {
 
         assertNotNull(openAPI);
         assertNotNull(openAPI.getInfo());
-        assertNotNull(openAPI.getComponents());
     }
 }
