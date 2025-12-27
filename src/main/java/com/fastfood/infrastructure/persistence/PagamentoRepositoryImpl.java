@@ -31,11 +31,7 @@ public class PagamentoRepositoryImpl implements PagamentoRepository {
 
     @Override
     public Optional<Pagamento> findById(UUID id) {
-        if(jpaPagamentoRepository.findById(id).isPresent()) {
-            JpaPagamentoEntity entity = jpaPagamentoRepository.findById(id).get();
-            return Optional.ofNullable(entity.toDomain());
-        }
-        return Optional.empty();
+        return jpaPagamentoRepository.findById(id).map(JpaPagamentoEntity::toDomain);
     }
 
     @Override
@@ -48,7 +44,7 @@ public class PagamentoRepositoryImpl implements PagamentoRepository {
     @Override
     public Optional<Pagamento> findByPedidoId(UUID pedidoId) {
         JpaPagamentoEntity entity = jpaPagamentoRepository.findByPedidoId(pedidoId);
-        return Optional.of(entity.toDomain());
+        return Optional.ofNullable(entity).map(JpaPagamentoEntity::toDomain);
     }
 
     @Override

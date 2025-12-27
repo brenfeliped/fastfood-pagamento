@@ -1,12 +1,12 @@
 package com.fastfood.application.usecase;
 
+import com.fastfood.domain.exception.PagamentoNaoEncontradoException;
 import com.fastfood.domain.pagamento.EnumStatusPagamento;
 import com.fastfood.domain.pagamento.Pagamento;
 import com.fastfood.domain.pagamento.PagamentoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -16,7 +16,6 @@ public class PagamentoService {
 
     public PagamentoService(PagamentoRepository pagamentoRepository) {
         this.pagamentoRepository = pagamentoRepository;
-
     }
 
     public Pagamento salvarPagamento(Pagamento pagamento){
@@ -28,15 +27,16 @@ public class PagamentoService {
     }
 
     public Pagamento buscarPorId(UUID id){
-        return pagamentoRepository.findById(id).get();
+        return pagamentoRepository.findById(id)
+                .orElseThrow(() -> new PagamentoNaoEncontradoException(id));
     }
 
     public Pagamento buscarPorPedidoId(UUID id){
-        return pagamentoRepository.findByPedidoId(id).get();
+        return pagamentoRepository.findByPedidoId(id)
+                .orElseThrow(() -> PagamentoNaoEncontradoException.porPedidoId(id));
     }
 
     public List<Pagamento> buscarPorStatus(EnumStatusPagamento status){
-
         return pagamentoRepository.findByStatus(status);
     }
 }
