@@ -23,7 +23,7 @@ services:
       - db-pagamento
       - kafka
     ports:
-      - "8083:8083"
+      - "8085:8085"
       - "5008:5005"
     command: >
       java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
